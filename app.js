@@ -101,17 +101,17 @@ operationButtons.forEach(button => { button.addEventListener('click', () => {cal
 });
 });
 
-equalsButton.addEventListener('click', button => {
+equalsButton.addEventListener('click', () => {
     calculator.compute();
     calculator.updateDisplay();
 });
 
-deleteButton.addEventListener('click', button => {
+deleteButton.addEventListener('click', () => {
     calculator.delete();
     calculator.updateDisplay();
 });
 
-allClearButton.addEventListener('click', button => {
+allClearButton.addEventListener('click', () => {
     calculator.clear();
     calculator.updateDisplay();
 });
