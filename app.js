@@ -30,9 +30,11 @@ class Calculator {
     delete() {
 
     }
-//when the user clicks on the number, it is shown on the screen
+//when the user clicks on the number, it is shown on the screen and multiple numbers can be added
     appendNumber(number) {
-        this.currentOperand = number;
+      //to stop the period from repeating and allow the user to only add one period
+        if (number === '.' && this.currentOperand.includes('.')) return;
+        this.currentOperand = this.currentOperand.toString() + number.toString();
 
     }
 //This is called anytime the user clicks on the operations
