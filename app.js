@@ -39,6 +39,9 @@ class Calculator {
     }
 //This is called anytime the user clicks on the operations
     chooseOperation(operation) {
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '';
 
     }
     compute() {
@@ -48,6 +51,7 @@ class Calculator {
     updateDisplay() {
 //test if it works
         this.currentOperandTextElement.innerText = this.currentOperand;
+        this.previousOperandTextElement.innerText = this.previousOperand;
     }
 
 }
@@ -57,6 +61,12 @@ class Calculator {
 const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement);
 
 numberButtons.forEach(button => { button.addEventListener('click', () => {calculator.appendNumber(button.innerText);
+ 
+    calculator.updateDisplay();
+});
+});
+//choose operation to append
+operationButtons.forEach(button => { button.addEventListener('click', () => {calculator.chooseOperation(button.innerText);
  
     calculator.updateDisplay();
 });
